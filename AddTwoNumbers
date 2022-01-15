@@ -1,0 +1,22 @@
+class Solution:
+    def addTwoNumbers(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
+        l3 = ListNode()
+        pointer = l3
+        answer = []
+        carry = 0
+        while l1:
+            add = l1.val + l2.val + carry
+            print (add)
+            if(add >=10):
+                carry = 1
+                remain = add - 10
+            else:
+                carry = 0
+                remain = add
+            answer.append(remain)
+            pointer.next = ListNode(remain)
+            pointer = pointer.next
+            l1 = l1.next
+            l2 = l2.next  
+        return (l3.next)
+
