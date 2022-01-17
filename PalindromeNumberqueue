@@ -1,0 +1,9 @@
+class Solution:
+    def isPalindrome(self, x: int) -> bool:
+        x_list = list(str(x))
+        lenx = len(x_list)
+        for i in range(int(len(x_list)/2)):
+            tmp = x_list.pop()
+            if tmp != x_list[i]:
+                return False            
+        return True
