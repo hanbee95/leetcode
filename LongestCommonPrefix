@@ -1,0 +1,9 @@
+class Solution:
+    def longestCommonPrefix(self, strs: List[str]) -> str:
+        common = strs[0]
+        pnt = len(common)
+        for word in strs[1:]:
+            while word[:pnt] != common[:pnt]:
+                pnt = pnt - 1
+                common = common[:pnt]
+        return common
