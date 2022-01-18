@@ -1,0 +1,43 @@
+class Solution:
+    def romanToInt(self, s: str) -> int:
+        given = list(s)
+        print (given)
+        result = 0
+        flag = [0,0,0]
+        for ch in given:
+            if ch == 'I':
+                result = result +1
+                flag[0] = 1
+            elif ch == 'V':
+                result = result +5
+                if flag[0] == 1:
+                    result = result -2 #I IV two
+                    flag[0] = 0
+            elif ch == 'X':
+                flag[1] = 1
+                result = result +10    
+                if flag[0] == 1:
+                    result = result -2 #I IV two    
+                    flag[0] = 0
+            elif ch == 'L':
+                result = result +50
+                if flag[1] == 1:
+                    result = result -20 # two    
+                    flag[1] = 0                
+            elif ch == 'C':
+                result = result +100
+                flag[2] = 1
+                if flag[1] == 1:
+                    result = result -20 # two    
+                    flag[1] = 0                     
+            elif ch == 'D':
+                result = result +500          
+                if flag[2] == 1:
+                    result = result -200 # two    
+                    flag[2] = 0                   
+            elif ch == 'M':
+                result = result +1000     
+                if flag[2] == 1:
+                    result = result -200 # two    
+                    flag[2] = 0                 
+        return result
