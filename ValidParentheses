@@ -1,0 +1,35 @@
+class Solution:
+    def isValid(self, s: str) -> bool:
+        check = []
+        if len(s) %2 != 0:
+            return False
+        if len(s) > 10000:
+            return False
+        for sym in s:
+            if sym == "{" or sym == "(" or sym == "[":
+                check.append(sym)
+            if sym == "}":
+                if len(check) < 1 :
+                    return False                    
+                elif check[-1] == "{" :
+                    check.pop(-1)
+                else:
+                    check.append(sym)
+            if sym == ")":
+                if len(check) < 1 :
+                    return False                    
+                elif check[-1] == "(" :
+                    check.pop(-1)
+                else:
+                    check.append(sym)                
+            if sym == "]":
+                if len(check) < 1 :
+                    return False                    
+                elif check[-1] == "[" :
+                    check.pop(-1)
+                else:
+                    check.append(sym)       
+        if check == []:
+            return True
+        else:
+            return False
