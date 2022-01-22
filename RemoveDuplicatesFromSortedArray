@@ -1,0 +1,15 @@
+class Solution:
+    def removeDuplicates(self, nums: List[int]) -> int:
+        cnt = 0
+        while(True):
+            if len(nums) == 0:
+                return 0
+            if len(nums) == 1:
+                return 1            
+            if cnt >= len(nums)-1:
+                return cnt+1    
+
+            if nums[cnt] != nums[cnt+1]:
+                cnt = cnt+1          
+            else:
+                nums.pop(cnt)
