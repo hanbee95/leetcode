@@ -1,0 +1,28 @@
+class Solution:
+    def maxSubArray(self, nums: List[int]) -> int:
+        # subarray = []
+        # o_sum = nums[0]
+        # numl = len(nums)
+        # if numl == 1:
+        #     return nums[0]
+        # if numl > 10000:
+        #     return 0
+        # for o_len in range(1, numl+1):
+        #     for j in range(numl-o_len+1):
+        #         tmpSum = sum(nums[j:j+o_len])
+        #         if tmpSum > o_sum :
+        #             subarray = nums[j:j+o_len]
+        #             o_sum = tmpSum
+        # return o_sum
+        
+        #kadane's algorithm
+        max_so_far = nums[0]
+        max_ending_here = 0
+        
+        for i in range(len(nums)):
+            max_ending_here = max_ending_here + nums[i]
+            if (max_so_far < max_ending_here):
+                max_so_far = max_ending_here
+            if (max_ending_here < 0):
+                max_ending_here = 0
+        return max_so_far
