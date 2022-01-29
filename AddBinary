@@ -1,0 +1,23 @@
+class Solution:
+    def addBinary(self, a: str, b: str) -> str:
+        al = list(a)
+        lal = len(al)
+        bl = list(b)
+        lbl = len(bl)
+        if lal > lbl:
+            bl = ['0']*(lal-lbl) + bl
+        elif lbl > lal:
+            al = ['0']*(lbl-lal) + al
+        bisum = 0
+        bicarry = 0
+        for binum in range(len(al)):
+            bkcnt = len(al)-int(binum)-1
+            bisum = (int(al[bkcnt]) + int(bl[bkcnt]) + bicarry)%2
+            bicarry = (int(al[bkcnt]) + int(bl[bkcnt]) + bicarry)//2
+            al[bkcnt] = bisum
+        if bicarry == 1:
+            output = [1] + al
+        else :
+            output = al
+        soutput = ''.join([str(elem) for elem in output])
+        return soutput
