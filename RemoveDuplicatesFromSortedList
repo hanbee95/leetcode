@@ -1,0 +1,13 @@
+class Solution:
+    def deleteDuplicates(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        pointer = head
+        if head == None:
+            return head
+        while (head.next != None):
+            prev = head.val
+            if prev == head.next.val:
+                head.next = head.next.next
+            else:
+                if head.next != None:
+                    head = head.next
+        return pointer
