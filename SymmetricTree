@@ -1,0 +1,17 @@
+class Solution:
+    def isSymmetric(self, root: Optional[TreeNode]) -> bool:
+        def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
+            if p == None and q == None:
+                return True
+            elif p == None and q != None:
+                return False
+            elif p != None and q == None:
+                return False
+            else:
+                if p.val != q.val:
+                    return False
+            return isSameTree(self, p.left, q.right) and isSameTree(self, p.right, q.left)       
+        
+        left = root.left
+        right = root.right
+        return isSameTree(self, left, right)
