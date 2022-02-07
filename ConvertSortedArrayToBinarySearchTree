@@ -1,0 +1,13 @@
+class Solution:
+    def sortedArrayToBST(self, nums: List[int]) -> Optional[TreeNode]:
+        numl = len(nums)
+        if numl == 0:
+            return None
+        elif numl == 1:
+            return TreeNode(nums[0])
+        else:
+            mid = numl//2
+            root = TreeNode(nums[mid])
+            root.left = self.sortedArrayToBST(nums[0:mid])
+            root.right = self.sortedArrayToBST(nums[mid + 1:])
+            return root
