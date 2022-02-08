@@ -1,0 +1,19 @@
+class Solution:
+    def isBalanced(self, root: Optional[TreeNode]) -> bool:
+        def maxDepth(self, root: Optional[TreeNode]) -> int:
+            if root == None:
+                return 0
+            leftdepth = maxDepth(self, root.left)
+            rightdepth = maxDepth(self, root.right)        
+            return max(leftdepth, rightdepth)+1 
+        if root == None:
+            return True
+        if root.left == None and root.right == None :
+            return True
+        lmax = maxDepth(self, root.left)
+        rmax = maxDepth(self, root.right)
+
+        if abs(lmax - rmax) > 1:
+            return False
+        else:
+            return self.isBalanced(root.left) and self.isBalanced(root.right) 
