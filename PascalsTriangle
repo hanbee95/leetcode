@@ -1,0 +1,9 @@
+class Solution:
+    def generate(self, numRows: int) -> List[List[int]]:
+        output = []
+        for i in range(numRows):
+            combi = []
+            for j in range(i+1):
+                combi.append(comb(i,j))
+            output.append(combi)
+        return output
