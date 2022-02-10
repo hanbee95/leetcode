@@ -1,0 +1,14 @@
+class Solution:
+    def hasPathSum(self, root: Optional[TreeNode], targetSum: int) -> bool:
+        if root == None:
+            return False
+        def matching(root, total):
+            if root == None:
+                return False            
+            total = total + root.val
+            if root.left == None and root.right == None:
+                return total==targetSum
+            leftMatch = matching(root.left, total)
+            rightMatch = matching(root.right, total)
+            return leftMatch or rightMatch            
+        return matching(root, 0)
