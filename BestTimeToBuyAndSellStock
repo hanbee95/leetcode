@@ -1,0 +1,19 @@
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        cur_min = prices[0]
+        cur_max = prices[0] 
+        max_diff = 0
+        max_in = 0
+
+        for idx, price in enumerate(prices):
+            if price > cur_max:
+                if idx > max_in :
+                    cur_max = price
+            if price < cur_min:
+                cur_min  = price
+                cur_max = 0
+                max_in = idx
+            if max_diff < cur_max - cur_min :
+                max_diff = cur_max - cur_min
+
+        return max_diff
