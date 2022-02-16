@@ -1,0 +1,14 @@
+class Solution:
+    def hasCycle(self, head: Optional[ListNode]) -> bool:
+        if head == None:
+            return False
+        ptrfast = head
+        ptrslow = head
+        #print (head.next)
+        while (ptrfast.next is not None) and (ptrfast.next.next is not None):
+            ptrslow = ptrslow.next
+            ptrfast = ptrfast.next.next
+            if ptrslow == ptrfast:
+                return True
+        return False
+            
