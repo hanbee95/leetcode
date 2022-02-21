@@ -1,0 +1,11 @@
+class Solution:
+    def majorityElement(self, nums: List[int]) -> int:
+        if nums == None:
+            return 
+        numdict = {}
+        for num in nums:
+            if num in numdict.keys():
+                numdict[num] = numdict[num] + 1
+            else:
+                numdict[num] = 1
+        return max(numdict, key=numdict.get)
