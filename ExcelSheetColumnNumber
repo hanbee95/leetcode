@@ -1,0 +1,6 @@
+class Solution:
+    def titleToNumber(self, columnTitle: str) -> int:
+        output = 0
+        for char in columnTitle:
+            output = 26*output+(ord(char)-64)
+        return output
