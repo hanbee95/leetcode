@@ -1,0 +1,4 @@
+class Solution:
+    def reverseBits(self, n: int) -> int:
+        nt = int(format(n,"b").rjust(32,'0')[::-1],2)
+        return nt
