@@ -1,0 +1,11 @@
+class Solution:
+    def isIsomorphic(self, s: str, t: str) -> bool:
+        mapping = {}
+        for idx, char in enumerate(s):
+            if char in mapping.keys():
+                if mapping[char]!=t[idx]:
+                    return False
+            mapping[char]=t[idx]
+        if len(mapping.values()) != len(set(mapping.values())):
+            return False
+        return True
