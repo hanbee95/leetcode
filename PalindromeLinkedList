@@ -1,0 +1,13 @@
+class Solution:
+    def isPalindrome(self, head: Optional[ListNode]) -> bool:
+        ptr = head
+        listing = []
+        while (ptr.next != None):
+            listing.append(ptr.val)
+            ptr = ptr.next
+        listing.append(ptr.val)
+        #print (listing)
+        for i in range(len(listing)):
+            if listing[i] != listing[len(listing)-1-i]:
+                return False
+        return True
