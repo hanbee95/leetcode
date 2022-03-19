@@ -1,0 +1,12 @@
+class Solution:
+    def binaryTreePaths(self, root: Optional[TreeNode]) -> List[str]:
+        output = []
+        def find(root, path = ""):
+            if root.left:
+                find(root.left, path+str(root.val)+"->")
+            if root.right:
+                find(root.right, path+str(root.val)+"->")
+            if not root.left and not root.right:
+                output.append(path + str(root.val))
+        find(root)
+        return output
