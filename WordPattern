@@ -1,0 +1,14 @@
+class Solution:
+    def wordPattern(self, pattern: str, s: str) -> bool:
+        if len(pattern) != len(s.split()):
+            return False        
+        patterndict = {}
+        for idx, ch in enumerate(pattern):
+            if ch not in patterndict.keys():
+                patterndict[ch] = s.split()[idx]
+            else:
+                if patterndict[ch] != s.split()[idx]:
+                    return False
+        if len(patterndict.values()) != len(set(patterndict.values())):
+            return False
+        return True
