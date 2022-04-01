@@ -1,0 +1,22 @@
+class Solution:
+    def intersect(self, nums1: List[int], nums2: List[int]) -> List[int]:
+        output = []
+        d1 = {}
+        d2 = {}
+        for elem1 in nums1:
+            if elem1 in d1:
+                d1[elem1] = d1[elem1] +1
+            else:
+                d1[elem1] = 1
+        for elem2 in nums2:
+            if elem2 in d1:
+                if elem2 in d2:
+                    if d1[elem2] > d2[elem2]:
+                        d2[elem2] = d2[elem2] +1 
+                else:
+                    d2[elem2] = 1
+
+        for k,v in d2.items():
+            for i in range(v):
+                output.append(k)
+        return output
