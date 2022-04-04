@@ -1,0 +1,13 @@
+class Solution:
+    def canConstruct(self, ransomNote: str, magazine: str) -> bool:
+        check = {}
+        for ch in magazine:
+            if ch in check.keys():
+                check[ch] = check[ch] + 1
+            else:
+                check[ch] = 1
+        for ch in ransomNote:
+            if ch not in check.keys() or check[ch] == 0: return False
+            else:
+                check[ch] = check[ch] - 1
+        return True
