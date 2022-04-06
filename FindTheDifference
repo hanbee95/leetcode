@@ -1,0 +1,7 @@
+class Solution:
+    def findTheDifference(self, s: str, t: str) -> str:
+        anr = 0
+        for i in range(len(s)):
+            anr = anr ^ ord(s[i]) ^ ord(t[i])
+        anr = anr ^ ord(t[-1])
+        return chr(anr)
