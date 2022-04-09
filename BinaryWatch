@@ -1,0 +1,13 @@
+class Solution:
+    def readBinaryWatch(self, turnedOn: int) -> List[str]:
+        output = []
+        cob = comb(10,turnedOn)
+        for i in range(2**10):
+            ibin = format(i,'b').zfill(10)
+            if ibin.count('1') == turnedOn:
+                h = int(ibin[:4],2)
+                m = int(ibin[4:],2)
+                if h <12 and m <60:
+                    string = str(h)+":"+str(m).zfill(2)
+                    output.append(string)         
+        return output
