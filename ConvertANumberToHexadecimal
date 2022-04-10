@@ -1,0 +1,10 @@
+class Solution:
+    def toHex(self, num: int) -> str:
+        #num to two's comp
+        if num >= 0:
+            comp = bin(num).split("0b")[1]
+        else:
+            numpos = -1*num
+            comp = bin(pow(2,32)-numpos).split("0b")[1]
+        #return hex
+        return hex(int(comp,2)).split("0x")[1] 
