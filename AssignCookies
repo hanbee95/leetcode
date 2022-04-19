@@ -1,0 +1,14 @@
+class Solution:
+    def findContentChildren(self, g: List[int], s: List[int]) -> int:
+        g=sorted(g)
+        s=sorted(s)
+        cnt = 0
+        for ele in g:          
+            s.append(ele) 
+            s=sorted(s)
+            idx = s.index(ele)
+            if idx + 1 >= len(s):
+                return cnt
+            cnt = cnt +1
+            s = s[idx+2:]
+        return len(g)
