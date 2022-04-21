@@ -1,0 +1,4 @@
+class Solution:
+    def findComplement(self, num: int) -> int:
+        comp = (str(bin(num)[2:]).replace('0','2').replace('1','0').replace('2','1'))
+        return int('0b'+comp, 2)
