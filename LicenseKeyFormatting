@@ -1,0 +1,11 @@
+class Solution:
+    def licenseKeyFormatting(self, s: str, k: int) -> str:
+        s = ''.join(s.upper().split('-'))
+        #print (s)
+        if len(s) < k: 
+            return s
+        l = len(s)%k
+        if l == 0: 
+            return '-'.join([s[i:i+k] for i in range(0,len(s)-k+1,k)])
+        else: 
+            return s[0:l]+'-'+'-'.join([s[i:i+k] for i in range(l,len(s)-k+1,k)])
