@@ -1,0 +1,7 @@
+class Solution:
+    def constructRectangle(self, area: int) -> List[int]:
+        a = int(sqrt(area))
+        while (True):
+            if area % a ==0:
+                return [area//a,a]
+            a = a -1
