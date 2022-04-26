@@ -1,0 +1,21 @@
+class Solution:
+    def findWords(self, words: List[str]) -> List[str]:
+        output = []
+        for word in words:
+            loc = 0
+            prev = 0
+            status = 0
+            for elem in word.lower():
+                if elem in "qwertyuiop":
+                    loc = 1
+                elif elem in "asdfghjkl":
+                    loc = 2
+                elif elem in "zxcvbnm":
+                    loc = 3
+                if prev !=0 and prev != loc:
+                    status = 1
+                    break
+                prev = loc
+            if status == 0:
+                output.append(word)
+        return output
