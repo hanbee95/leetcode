@@ -1,0 +1,19 @@
+class Solution:
+    def nextGreaterElement(self, nums1: List[int], nums2: List[int]) -> List[int]:
+        maxn = max(nums2)
+        #lenn = len(nums2)
+        output = []
+        for idx, elem in enumerate(nums1):
+            if elem == maxn:
+                output.append(-1)
+            else:
+                status = 0
+                idx2 = nums2.index(elem)
+                for elem2 in nums2[idx2:]:
+                    if elem2 > elem:
+                        status = 1
+                        output.append(elem2)
+                        break
+                if status == 0:
+                    output.append(-1)
+        return output
