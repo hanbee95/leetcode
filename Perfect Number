@@ -1,0 +1,7 @@
+class Solution:
+    def checkPerfectNumber(self, num: int) -> bool:
+        candi = [2,3,5,7,13,17,19,31]
+        for elem in candi:
+            if (2**(elem-1))*((2**elem)-1) == num:
+                return True
+        return False
