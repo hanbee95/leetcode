@@ -1,0 +1,18 @@
+class Solution:
+    def detectCapitalUse(self, word: str) -> bool:
+        first = False
+        second = False
+        
+        for idx,elem in enumerate(word):
+            if idx == 0:
+                first = elem.isupper()
+            elif idx == 1:  
+                if elem.isupper() == True:
+                    second = True
+                if first == False and second == True:
+                    return False                     
+            else:
+                if elem.isupper() != second:
+                    return False
+
+        return True
