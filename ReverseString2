@@ -1,0 +1,24 @@
+class Solution:
+    def reverseStr(self, s: str, k: int) -> str:
+        status = 0
+        output = ""
+        while len(s)>0:
+            if len(s)>k:
+                cand = s[:k]
+                s = s[k:]
+            elif len(s) == k:
+                cand = s
+                s = ""
+            else:
+                cand = s
+                s = ""
+                
+            #print (cand)
+            if status == 0:
+                output = output + cand[::-1]
+                status = 1
+            else:
+                output = output + cand
+                status = 0
+        return output
+            
