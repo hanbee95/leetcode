@@ -1,0 +1,16 @@
+class Solution:
+    def checkRecord(self, s: str) -> bool:
+        absentcnt = 0
+        latecnt = 0
+        for day in s:
+            if day != 'L':
+                latecnt = 0
+            if day == 'L':
+                latecnt = latecnt + 1
+                if latecnt >=3:
+                    return False
+            if day == 'A':
+                absentcnt = absentcnt + 1
+                if absentcnt >= 2:
+                    return False
+        return True
