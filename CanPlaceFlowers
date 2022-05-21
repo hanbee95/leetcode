@@ -1,0 +1,29 @@
+class Solution:
+    def canPlaceFlowers(self, flowerbed: List[int], n: int) -> bool:
+        space = 1
+        cnt = 0
+        if len(flowerbed) == 1:
+            if n == 0:
+                return True
+            elif flowerbed[0] == 0:
+                if n == 1:
+                    return True
+            else:
+                return False
+        for idx, elem in enumerate(flowerbed):
+            if elem == 1:
+                space = 0
+            else:
+                if space == 1:
+                    if len(flowerbed) == idx +1:
+                        cnt = cnt + 1
+                        space = 0
+                    else:
+                        if flowerbed[idx + 1] == 0:
+                            cnt = cnt + 1
+                            space = 0
+                else:
+                    space = 1
+                if cnt >= n:
+                    return True
+        return False
