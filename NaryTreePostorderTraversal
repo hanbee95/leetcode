@@ -1,0 +1,14 @@
+class Solution:
+    def postorder(self, root: 'Node') -> List[int]:
+        if not root:
+            return
+        output = []
+        def childrendef(root):
+            if not root:
+                return            
+            for n in root.children:
+                childrendef(n)
+            output.append(root.val)
+
+        childrendef(root)
+        return output 
