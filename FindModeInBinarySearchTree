@@ -1,0 +1,15 @@
+class Solution:
+    def findMode(self, root: Optional[TreeNode]) -> List[int]:
+        self.freq = {}
+        def dfs(node):
+            if not node: return
+            if str(node.val) in self.freq.keys():
+                self.freq[str(node.val)] = self.freq[str(node.val)] + 1
+            else:
+                self.freq[str(node.val)] = 1
+            dfs(node.left)
+            dfs(node.right)
+            return
+        dfs(root)
+        output = [key for key, value in self.freq.items() if value == max(self.freq.values())]
+        return output
