@@ -1,0 +1,11 @@
+class Solution:
+    def findErrorNums(self, nums: List[int]) -> List[int]:
+        edict = Counter(nums)
+        n = len(nums)
+        for key, val in edict.items():
+            if val == 2:
+                rep = key
+                break
+        nums.remove(rep)
+        sumn = n*(n+1)//2 - sum(nums)
+        return ([rep,sumn])
