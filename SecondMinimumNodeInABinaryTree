@@ -1,0 +1,16 @@
+class Solution:
+    def findSecondMinimumValue(self, root: Optional[TreeNode]) -> int:
+        allval = []
+        def dfs(root,allval):
+            if not root:
+                return
+            allval.append(root.val)
+            dfs(root.left,allval)
+            dfs(root.right,allval)
+        dfs(root,allval)
+        output=list(set(allval))
+        output.sort()
+        if len(output)>1:
+            return output[1]
+        else:
+            return -1
