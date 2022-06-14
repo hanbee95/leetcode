@@ -1,0 +1,13 @@
+class Solution:
+    def countBinarySubstrings(self, s: str) -> int:
+        output = 0
+        cur , prev = 1, 0
+        for elem in range(1,len(s)):
+            if s[elem-1] == s[elem]:
+                cur = cur + 1
+            else:
+                output = output + min(cur,prev)
+                prev = cur
+                cur = 1
+        output = output + min(cur,prev)
+        return output
