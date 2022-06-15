@@ -1,0 +1,15 @@
+class Solution:
+    def findShortestSubArray(self, nums: List[int]) -> int:
+        count = collections.Counter(nums)
+        left, right = {}, {}
+        for idx, x in enumerate(nums):
+            if x not in left.keys():
+                left[x] = idx
+            right[x] = idx
+            
+        output = len(nums)
+        degree = max(count.values())
+        for x in count.keys():
+            if count[x] == degree:
+                output = min(output,right[x]-left[x]+1)
+        return output
