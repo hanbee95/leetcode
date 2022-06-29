@@ -1,0 +1,20 @@
+class Solution:
+    def shortestCompletingWord(self, licensePlate: str, words: List[str]) -> str:
+        newplate = re.sub(r'[^a-zA-Z]', '', licensePlate).lower()
+        mincnt = 9999
+        output = ''
+        for elem in words:
+            tmp = elem
+            status = 0
+            for ch in newplate:
+                if ch not in tmp:
+                    status = 1
+                    break
+                else:
+                    tmp = tmp.replace(ch,'',1)
+                
+            if status == 0:
+                if len(elem) < mincnt:
+                    output = elem
+                    mincnt = len(elem)
+        return output
