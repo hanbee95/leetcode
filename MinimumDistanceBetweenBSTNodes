@@ -1,0 +1,15 @@
+class Solution:
+    def __init__(self):
+        self.inorder = []
+    def getlist(self, root, inorder):
+        if root is None:
+            return []
+        self.getlist(root.left, self.inorder)
+        inorder.append(root.val)
+        self.getlist(root.right, self.inorder)
+    def minDiffInBST(self, root: Optional[TreeNode]) -> int:       
+        self.getlist(root, self.inorder)
+        mind = float('inf')
+        for i in range(1, len(self.inorder)):
+            mind = min(mind, self.inorder[i]-self.inorder[i-1])
+        return mind
