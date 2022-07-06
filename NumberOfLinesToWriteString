@@ -1,0 +1,11 @@
+class Solution:
+    def numberOfLines(self, widths: List[int], s: str) -> List[int]:
+        cnt = 0
+        cntl = 1
+        for elem in s:
+            cnt = cnt + widths[ord(elem)-97]
+            if  cnt >100:
+                cntl = cntl + 1
+                cnt = widths[ord(elem)-97]
+                
+        return [cntl,cnt]
