@@ -1,0 +1,13 @@
+class Solution:
+    def shortestToChar(self, s: str, c: str) -> List[int]:
+        occ = []
+        output = []
+        for i in range(len(s)):
+            if s[i] == c:
+                occ.append(i)
+        for j in range(len(s)):
+            tmp = []
+            for i in occ:
+                tmp.append(abs(j-int(i)))
+            output.append(min(tmp))
+        return output
