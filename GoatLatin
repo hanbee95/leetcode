@@ -1,0 +1,17 @@
+class Solution:
+    def toGoatLatin(self, sentence: str) -> str:
+        vowel = 'aeiouAEIOU'
+        inputa = sentence.split()
+        outputl = []
+        cnt = 1
+        for word in inputa:
+            change = word
+            if word[0] in vowel:
+                change = change + 'ma'
+            else:
+                change = change[1:]+change[0]+'ma'
+            change = change + 'a'*cnt    
+            cnt = cnt + 1
+            outputl.append(change)
+            output = ' '.join(outputl)
+        return output
