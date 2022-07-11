@@ -1,0 +1,21 @@
+class Solution:
+    def largeGroupPositions(self, s: str) -> List[List[int]]:
+        prev = 0
+        output = []
+        start = 0
+        end = 0
+        cnt = 0
+        for idx, elem in enumerate(s):
+            if elem == prev:
+                cnt = cnt + 1
+            else:
+                prev = elem
+                end = idx
+                if cnt >=2:
+                    output.append([start,end-1])
+                start = idx
+                cnt = 0
+        if prev == elem:
+            if cnt >=2:
+                output.append([start,len(s)-1])
+        return output
