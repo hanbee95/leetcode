@@ -1,0 +1,20 @@
+class Solution:
+    def lemonadeChange(self, bills: List[int]) -> bool:
+        bdict = {5:0, 10:0, 20:0}
+        for bill in bills:
+            if bill == 5:
+                bdict[5] += 1
+            elif bill == 10:
+                if bdict[5] <=0:
+                    return False
+                bdict[5] -= 1
+                bdict[10] += 1
+            elif bill == 20:
+                if bdict[10] > 0 and bdict[5]>0:
+                    bdict[5] -= 1
+                    bdict[10] -= 1
+                elif bdict[5]>2:
+                    bdict[5] -= 3
+                else:
+                    return False
+        return True
