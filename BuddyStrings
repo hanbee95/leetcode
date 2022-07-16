@@ -1,0 +1,22 @@
+class Solution:
+    def buddyStrings(self, s: str, goal: str) -> bool:
+        if len(s) != len(goal):
+            return False
+        if s == goal:
+            return len(s)!=len(set(goal))
+        diff = ["",""]
+        status = 0
+        for idx, ch in enumerate(s):
+            if ch != goal[idx]: 
+                if status == 0:
+                    status = 1
+                    diff[0] = goal[idx]
+                    diff[1] = ch
+                elif status == 1:
+                    status = 2
+                    if diff[0] != ch or diff[1] != goal[idx]:
+                        return False
+                else: return False
+        if status == 0 or status == 1: return False
+        return True
+                
