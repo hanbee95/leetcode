@@ -1,0 +1,5 @@
+class Solution:
+    def transpose(self, matrix: List[List[int]]) -> List[List[int]]:
+        rowm = len(matrix[0])
+        output = [[row[i] for row in matrix] for i in range(rowm)]
+        return output
