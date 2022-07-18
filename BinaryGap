@@ -1,0 +1,15 @@
+class Solution:
+    def binaryGap(self, n: int) -> int:
+        temp = 0
+        status = 0
+        output = 0
+        for elem in format(n, "b"):
+            if elem == '1':
+                if status == 1:
+                    if output < temp+1:
+                        output = temp+1
+                status = 1
+                temp = 0
+            if status == 1 and elem == '0':
+                temp = temp + 1
+        return output
