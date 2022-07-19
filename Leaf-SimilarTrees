@@ -1,0 +1,16 @@
+class Solution:
+    def leafSimilar(self, root1: Optional[TreeNode], root2: Optional[TreeNode]) -> bool:
+        def dfs(self, root, leaf):
+            if not root:
+                return
+            if not root.left and not root.right:
+                leaf.append(root.val)
+            dfs(self, root.left, leaf)
+            dfs(self, root.right, leaf)
+        leaf1 = []
+        leaf2 = []
+        dfs(self, root1,leaf1)
+        dfs(self, root2,leaf2)
+        if leaf1 == leaf2:
+            return True
+        return False
