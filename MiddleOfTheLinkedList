@@ -1,0 +1,13 @@
+class Solution:
+    def middleNode(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        ptr = head
+        ll = [ptr.val]
+        while(ptr.next != None):
+            ptr = ptr.next
+            ll.append(ptr.val)
+        
+        idx = len(ll)//2
+        ptr_o = head
+        for i in range(idx):
+            ptr_o = ptr_o.next
+        return ptr_o
