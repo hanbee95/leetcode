@@ -1,0 +1,17 @@
+class Solution:
+    def isMonotonic(self, nums: List[int]) -> bool:
+        if len(nums) == 1:
+            return True
+        status = 0
+        prev = nums[0]
+        for elem in nums[1:]:
+            if elem > prev:
+                if status == 2:
+                    return False
+                status = 1
+            elif elem < prev:
+                if status == 1:
+                    return False
+                status = 2                
+            prev = elem
+        return True
