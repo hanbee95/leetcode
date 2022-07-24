@@ -1,0 +1,21 @@
+class Solution:
+    def projectionArea(self, grid: List[List[int]]) -> int:
+        col = len(grid)
+        row = len(grid[0])
+        xaxis = 0
+        for i in range(row):
+            for j in range(col):
+                if grid[j][i]!=0:
+                    xaxis = xaxis + 1       
+        yaxis = 0
+        for i in range(col):
+            maxg = max(grid[i])
+            yaxis = yaxis + maxg
+        zaxis = 0
+        for i in range(row):
+            maxj = 0
+            for j in range(col):
+                if grid[j][i]>maxj:
+                    maxj = grid[j][i]
+            zaxis = zaxis + maxj
+        return xaxis + yaxis + zaxis
