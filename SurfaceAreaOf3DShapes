@@ -1,0 +1,16 @@
+class Solution:
+    def surfaceArea(self, grid: List[List[int]]) -> int:
+        n = len(grid)
+        dirs = [[0,1], [0,-1], [1,0], [-1,0]]
+        def height(i,j):
+            if 0<=i<n and 0<=j<n:
+                return grid[i][j] 
+            else: return 0
+        def heightdiff(i,j,k,l):
+            return max(height(i,j)-height(k,l), 0)
+        def surfacearea(i,j):
+            if grid[i][j]:
+                return sum(heightdiff(i,j,i+x,j+y) for x,y in dirs)+2
+            else:
+                return 0
+        return sum(surfacearea(i,j) for i,j in product(range(n),range(n)))
