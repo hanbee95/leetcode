@@ -1,0 +1,13 @@
+class Solution:
+    def reverseOnlyLetters(self, s: str) -> str:
+        t = ""
+        pos = []
+        for idx,elem in enumerate(s):
+            if elem.isalpha():
+                t = t + elem
+            else:
+                pos.append([idx,elem])
+        s = t[::-1]
+        for idx, elem in pos:
+            s = s[:idx]+ elem + s[idx:]
+        return s
