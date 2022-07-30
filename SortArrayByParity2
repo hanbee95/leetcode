@@ -1,0 +1,20 @@
+class Solution:
+    def sortArrayByParityII(self, nums: List[int]) -> List[int]:
+        even = []
+        odd = []
+        
+        for elem in nums:
+            if elem %2 == 0:
+                even.append(elem)
+            else:
+                odd.append(elem)
+        output = []
+        cnt = len(even)
+        
+        while(cnt > 0):
+            output.append(even[0])
+            output.append(odd[0])
+            even.pop(0)
+            odd.pop(0)
+            cnt = cnt -1
+        return output
