@@ -1,0 +1,12 @@
+class Solution:
+    def isLongPressedName(self, name: str, typed: str) -> bool:
+        c = 0
+        l = 0
+        for elem in typed:
+            if c < len(name) and elem == name[c]:
+                l = c
+                c = c + 1
+            elif elem == name[l]:
+                continue
+            else: return False
+        return c == len(name)
