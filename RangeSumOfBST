@@ -1,0 +1,13 @@
+class Solution:
+    def rangeSumBST(self, root: Optional[TreeNode], low: int, high: int) -> int:
+        sumn = 0
+        def DFS(self, node):
+            nonlocal sumn
+            if node is None:
+                return
+            if low<=node.val <=high:
+                sumn = sumn + node.val
+            DFS(self, node.left)
+            DFS(self, node.right)
+        DFS(self,root)
+        return sumn
