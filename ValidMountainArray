@@ -1,0 +1,21 @@
+class Solution:
+    def validMountainArray(self, arr: List[int]) -> bool:
+        status = 0
+        cnt = 1
+        
+        if len(arr) < 3:
+            return False
+        while cnt < len(arr):
+            if arr[cnt-1] == arr[cnt]:
+                    return False
+            if status == 0:
+                if arr[cnt-1] > arr[cnt]:
+                    if cnt == 1:
+                        return False
+                    status = 1
+            elif status == 1:
+                if arr[cnt-1] < arr[cnt]:
+                    return False
+            cnt = cnt + 1
+        if status == 0: return False
+        return True
