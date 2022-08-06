@@ -1,0 +1,13 @@
+class Solution:
+    def diStringMatch(self, s: str) -> List[int]:
+        lo,hi = 0,len(s)
+        output = []
+        for elem in s:
+            if elem == 'I':
+                output.append(lo)
+                lo = lo + 1
+            else:
+                output.append(hi)
+                hi = hi - 1
+        output.append(lo)
+        return output
