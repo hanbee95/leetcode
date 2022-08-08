@@ -1,0 +1,7 @@
+class Solution:
+    def repeatedNTimes(self, nums: List[int]) -> int:
+        idx = 0
+        while(True):
+            if nums[idx] in nums[idx+1:]:
+                return nums[idx]
+            idx = idx + 1
