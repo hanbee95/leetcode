@@ -1,0 +1,5 @@
+class Solution:
+    def isUnivalTree(self, root: Optional[TreeNode]) -> bool:
+        left_cor = (not root.left or root.val == root.left.val and self.isUnivalTree(root.left))
+        right_cor = (not root.right or root.val == root.right.val and self.isUnivalTree(root.right))
+        return left_cor and right_cor
