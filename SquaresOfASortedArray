@@ -1,0 +1,6 @@
+class Solution:
+    def sortedSquares(self, nums: List[int]) -> List[int]:
+        square = []
+        for elem in nums:
+            square.append(elem**2)
+        return sorted(square)
