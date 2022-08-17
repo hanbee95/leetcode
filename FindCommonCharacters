@@ -1,0 +1,18 @@
+class Solution:
+    def commonChars(self, words: List[str]) -> List[str]:
+        check = {}
+        
+        for elem in words[0]:
+            if elem in check.keys():
+                check[elem] = check[elem] + 1
+            else:
+                check[elem] = 1
+        for elem in words[1:]:
+            for ch in check.keys():
+                if elem.count(ch) < check[ch]:
+                    check[ch] = elem.count(ch)
+        output = []
+        for (key,value) in check.items():
+            for times in range(value):
+                output.append(key)
+        return output
