@@ -1,0 +1,10 @@
+class Solution:
+    def bitwiseComplement(self, n: int) -> int:
+        bi = bin(n).replace('0b','')
+        comp = ''
+        for elem in bi:
+            if elem == '1':
+                comp = comp + '0'
+            else:
+                comp = comp + '1'
+        return int(comp,2) 
