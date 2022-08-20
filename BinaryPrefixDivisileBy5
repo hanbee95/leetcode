@@ -1,0 +1,8 @@
+class Solution:
+    def prefixesDivBy5(self, nums: List[int]) -> List[bool]:
+        total, output = 0, []
+        for num in nums:
+            total = total << 1
+            total = total + num
+            output.append(total%5==0)
+        return output
