@@ -1,0 +1,8 @@
+class Solution:
+    def heightChecker(self, heights: List[int]) -> int:
+        comp = sorted(heights)
+        cnt = 0
+        for idx, ch in enumerate(heights):
+            if ch != comp[idx]:
+                cnt = cnt + 1
+        return cnt
