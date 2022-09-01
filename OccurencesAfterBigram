@@ -1,0 +1,4 @@
+class Solution:
+    def findOcurrences(self, text: str, first: str, second: str) -> List[str]:
+        words = text.split()
+        return [words[idx+1] for idx,word in enumerate(words[:-2],1) if word == first and words[idx] == second]
