@@ -1,0 +1,18 @@
+class Solution:
+    def distributeCandies(self, candies: int, num_people: int) -> List[int]:
+        candict = {}
+        for i in range(num_people):
+            candict[i] = 0
+        candy,i,totalcandy = 1,0,0
+        while totalcandy < candies:
+            if i >= num_people:
+                i = 0
+            if candies - totalcandy >= candy:
+                candict[i] = candict[i] + candy
+                totalcandy = totalcandy + candy
+            else:
+                candict[i] = candict[i] + candies - totalcandy
+                totalcandy = totalcandy + candies - totalcandy
+            i = i + 1
+            candy = candy + 1
+        return candict.values()
