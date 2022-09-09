@@ -1,0 +1,13 @@
+class Solution:
+    def tribonacci(self, n: int) -> int:
+        if n == 0:
+            return 0
+        if n == 1:
+            return 1
+        if n == 2:
+            return 1
+        T = [0,1,1]
+        for i in range(n-2):
+            tmp = T[-1] + T[-2] + T[-3]
+            T.append(tmp)
+        return T[-1]
