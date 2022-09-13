@@ -1,0 +1,14 @@
+class Solution:
+    def countCharacters(self, words: List[str], chars: str) -> int:
+        output = 0
+        freq = Counter(chars)
+        for i in words:
+            tmp = Counter(i)
+            k = 0
+            for j in i:
+                if freq[j]<tmp[j]:
+                    k = 1
+                    continue
+            if k == 0:
+                output = output + len(i)
+        return output
