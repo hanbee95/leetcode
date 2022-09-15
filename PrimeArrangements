@@ -1,0 +1,12 @@
+class Solution:
+    def numPrimeArrangements(self, n: int) -> int:
+        if n <3:
+            return 1
+        prime = []
+        for val in range(2,n+1):
+            for i in range(2,int(math.sqrt(val)+1)):
+                if val%i == 0:
+                    break
+            else: prime.append(val)
+        compo = n - len(prime)
+        return (math.factorial(len(prime))*math.factorial(compo))%(10**9+7)
