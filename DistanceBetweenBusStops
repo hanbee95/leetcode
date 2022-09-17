@@ -1,0 +1,6 @@
+class Solution:
+    def distanceBetweenBusStops(self, distance: List[int], start: int, destination: int) -> int:
+        start, destination = min(start,destination), max(start,destination)
+        inside = sum(distance[start:destination])
+        outside = sum(distance[:start])+sum(distance[destination:])
+        return min(outside, inside)
