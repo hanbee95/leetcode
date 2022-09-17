@@ -1,0 +1,5 @@
+class Solution:
+    def dayOfTheWeek(self, day: int, month: int, year: int) -> str:
+        import time
+        date = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+        return date[time.strptime(f'{day} {month} {year}', '%d %m %Y')[6]]
