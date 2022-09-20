@@ -1,0 +1,6 @@
+class Solution:
+    def uniqueOccurrences(self, arr: List[int]) -> bool:
+        ndict = Counter(arr)
+        if len(ndict.values()) == len(set(ndict.values())):
+            return True
+        return False
