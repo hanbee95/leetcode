@@ -1,0 +1,15 @@
+class Solution:
+    def checkStraightLine(self, coordinates: List[List[int]]) -> bool:
+        if len(coordinates) == 2:
+            return True
+        if coordinates[1][0]==coordinates[0][0]:
+            for elem in coordinates[2:]:
+                if elem[0] != coordinates[1][0]:
+                    return False
+            return True
+        slope = (coordinates[1][1]-coordinates[0][1])/(coordinates[1][0]-coordinates[0][0])
+        edge = coordinates[1][1]-slope*coordinates[1][0]
+        for elem in coordinates[2:]:
+            if elem[1] != slope*elem[0]+edge:
+                return False
+        return True
