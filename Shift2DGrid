@@ -1,0 +1,15 @@
+class Solution:
+    def shiftGrid(self, grid: List[List[int]], k: int) -> List[List[int]]:
+        oneline = []
+        for r in grid:
+            for c in r:
+                oneline.append(c)
+        lst = [0]*len(oneline)
+        output = []
+        for i in range(len(oneline)):
+            lst[(i+k)%len(oneline)] = oneline[i]
+            
+        for i in range(0,len(lst),len(grid[0])):
+            output.append(lst[i:i+len(grid[0])])
+        return output
+            
