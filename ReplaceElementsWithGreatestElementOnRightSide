@@ -1,0 +1,10 @@
+class Solution:
+    def replaceElements(self, arr: List[int]) -> List[int]:
+        output = [-1]
+        index = len(arr)-2
+        max_right = arr[index + 1]
+        while index >=0:
+            max_right = max(max_right,arr[index+1])
+            output.insert(0,max_right)
+            index = index -1
+        return output
