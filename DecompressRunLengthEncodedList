@@ -1,0 +1,8 @@
+class Solution:
+    def decompressRLElist(self, nums: List[int]) -> List[int]:
+        output = []
+        while (nums):
+            for i in range(nums[0]):
+                output = output + [nums[1]]            
+            nums = nums[2:]
+        return output
