@@ -1,0 +1,9 @@
+class Solution:
+    def numberOfSteps(self, num: int) -> int:
+        output = 0
+        while num:
+            if (num!=1)&(num&1==1):
+                output = output + 1
+            num = num >> 1
+            output = output + 1
+        return output
