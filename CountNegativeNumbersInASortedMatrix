@@ -2,7 +2,8 @@ class Solution:
     def countNegatives(self, grid: List[List[int]]) -> int:
         output = 0
         for c in grid:
-            for r in c:
+            for r in c[::-1]:
                 if r <0:
                     output = output + 1
+                else: break
         return output
