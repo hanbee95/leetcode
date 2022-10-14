@@ -1,0 +1,14 @@
+class Solution:
+    def sortByBits(self, arr: List[int]) -> List[int]:
+        numdic = {}
+        output = []
+        for num in arr:
+            ones = bin(num).count('1')
+            if ones in numdic.keys():
+                numdic[ones].append(num)
+            else:
+                numdic[ones] = [num]
+        for key in sorted(numdic.keys()):
+            numdic[key] = sorted(numdic[key])
+            output = output + numdic[key]
+        return output
