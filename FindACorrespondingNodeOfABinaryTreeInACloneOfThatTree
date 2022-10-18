@@ -1,0 +1,9 @@
+class Solution:
+    def getTargetCopy(self, original: TreeNode, cloned: TreeNode, target: TreeNode) -> TreeNode:
+        queue = collections.deque([(original, cloned)])
+        while queue:
+            nodeOrig, nodeClon = queue.popleft()
+            if nodeOrig is target:
+                return nodeClon
+            if nodeOrig.left:  queue.append((nodeOrig.left, nodeClon.left))
+            if nodeOrig.right: queue.append((nodeOrig.right, nodeClon.right))
