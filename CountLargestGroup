@@ -1,0 +1,10 @@
+class Solution:
+    def countLargestGroup(self, n: int) -> int:
+        output = []
+        for i in range(1,n+1):
+            output.append(sum(int(x) for x in str(i)))
+
+        dictoutput = collections.Counter(output)
+        tmp = [i for i in dictoutput.values() if i == max(dictoutput.values())]
+
+        return len(tmp)
