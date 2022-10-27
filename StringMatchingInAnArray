@@ -1,0 +1,10 @@
+class Solution:
+    def stringMatching(self, words: List[str]) -> List[str]:
+        output = []
+        for idx, word in enumerate(words):
+            for sid, sw in enumerate(words):
+                if idx != sid:
+                    if word in sw:
+                        output.append(word)
+                        break
+        return output
