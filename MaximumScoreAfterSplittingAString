@@ -1,0 +1,8 @@
+class Solution:
+    def maxScore(self, s: str) -> int:
+        lens = len(s)
+        output = 0
+        for idx in range(lens-1):
+            if output < s[:idx+1].count('0') + s[idx+1:].count('1'):
+                output = s[:idx+1].count('0') + s[idx+1:].count('1')
+        return output
