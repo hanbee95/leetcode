@@ -1,0 +1,10 @@
+class Solution:
+    def kidsWithCandies(self, candies: List[int], extraCandies: int) -> List[bool]:
+        ref = max(candies) - extraCandies
+        output = []
+        for i in candies:
+            if i >=ref:
+                output.append(True)
+            else:
+                output.append(False)
+        return output
