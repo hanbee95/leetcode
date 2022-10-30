@@ -1,0 +1,27 @@
+class Solution:
+    def reformat(self, s: str) -> str:
+        numbers = []
+        alph = []
+        for i in s:
+            if i.isdigit():
+                numbers.append(i)
+            else:
+                alph.append(i)
+        if abs(len(numbers)-len(alph)) == 0 or abs(len(numbers)-len(alph)) == 1:
+            output = ''
+            if len(alph)>len(numbers) :
+                output = alph.pop(0)
+                first = numbers
+                second = alph
+            elif len(alph)<len(numbers) :
+                output = numbers.pop(0)
+                first = alph
+                second = numbers     
+            else:
+                first = alph
+                second = numbers   
+            for i, j in zip(first,second):
+                output = output + i+j
+            return output
+        else:
+            return ''
