@@ -1,0 +1,8 @@
+class Solution:
+    def destCity(self, paths: List[List[str]]) -> str:
+        pathdict = []
+        for i in paths:
+            pathdict.append(i[0])
+        for i in paths:
+            if i[1] not in pathdict:
+                return i[1]
