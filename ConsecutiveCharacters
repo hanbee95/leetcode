@@ -1,0 +1,14 @@
+class Solution:
+    def maxPower(self, s: str) -> int:
+        cnt = 0
+        maxn = 0
+        prev = s[0]
+        for ch in s:
+            if ch != prev:
+                cnt = 1
+                prev = ch
+            else:
+                cnt = cnt + 1
+                if maxn < cnt:
+                    maxn = cnt                
+        return maxn
