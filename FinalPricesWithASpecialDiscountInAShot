@@ -1,0 +1,13 @@
+class Solution:
+    def finalPrices(self, prices: List[int]) -> List[int]:
+        output = []
+        status = 0
+        for i,price in enumerate(prices):
+            status = 0
+            for ref in prices[i+1:]:
+                if price >= ref and status == 0:
+                    output.append(price-ref)
+                    status = 1
+            if status == 0:
+                output.append(price)
+        return output
