@@ -1,0 +1,15 @@
+class Solution:
+    def numSpecial(self, mat: List[List[int]]) -> int:
+        output = 0
+        for row in mat:
+            if row.count(1) == 1:
+                candcol = row.index(1)
+                cnt = 1
+                for col in range(len(mat)):
+                    if mat[col][candcol] == 1:
+                        cnt = cnt - 1
+                    if cnt <0:
+                        break
+                if cnt == 0:
+                    output = output + 1
+        return output
