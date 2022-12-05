@@ -1,0 +1,14 @@
+class Solution:
+    def reorderSpaces(self, text: str) -> str:
+        spaces = text.count(' ')
+        textlist = text.split()
+        lent = len(textlist)
+        if lent == 1:
+            return textlist[0]+' '*spaces
+        equalspace = spaces//(lent-1)
+        output = ''
+        
+        for i in range(lent-1):
+            output = output +  textlist[i] + ' '*equalspace
+        output = output + textlist[-1] + ' '*(spaces-equalspace*(lent-1))
+        return output
