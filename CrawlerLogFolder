@@ -1,0 +1,13 @@
+class Solution:
+    def minOperations(self, logs: List[str]) -> int:
+        count = 0
+        
+        for item in logs:
+            if item == '../':
+                if count > 0:
+                    count = count - 1
+            elif item == './':
+                pass
+            else:
+               count = count + 1
+        return count if count > 0 else 0
