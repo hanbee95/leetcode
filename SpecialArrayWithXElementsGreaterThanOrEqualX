@@ -1,0 +1,13 @@
+class Solution:
+    def specialArray(self, nums: List[int]) -> int:
+        for i in reversed(range(len(nums)+1)):
+            cnt = 0
+            for elem in nums:
+                if elem >= i:
+                    cnt = cnt + 1
+                    
+                if cnt > i+1:
+                    break
+            if cnt == i:
+                return cnt
+        return -1
