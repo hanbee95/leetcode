@@ -1,0 +1,11 @@
+class Solution:
+    def maxLengthBetweenEqualCharacters(self, s: str) -> int:
+        lud = {}
+        maxdiff = 0
+        for i, elem in enumerate(s):
+            if elem not in lud.keys():
+                lud[elem] = i
+            else: 
+                if maxdiff < i - lud[elem]:
+                    maxdiff = i-lud[elem]
+        return maxdiff-1
