@@ -1,0 +1,12 @@
+class Solution:
+    def slowestKey(self, releaseTimes: List[int], keysPressed: str) -> str:
+        maxt = releaseTimes[0]
+        output = keysPressed[0]
+        for i,elem in enumerate(keysPressed[1:]):
+            if maxt < releaseTimes[i+1]-releaseTimes[i]:
+                maxt = releaseTimes[i+1]-releaseTimes[i]
+                output = elem
+            elif maxt == releaseTimes[i+1]-releaseTimes[i]:
+                if output < elem:
+                    output = elem
+        return output
