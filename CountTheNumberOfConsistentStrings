@@ -1,0 +1,9 @@
+class Solution:
+    def countConsistentStrings(self, allowed: str, words: List[str]) -> int:
+        output = 0
+        for elem in words:
+            for ch in allowed:
+                elem = elem.replace(ch,'')
+            if elem == '':
+                output = output + 1
+        return output
