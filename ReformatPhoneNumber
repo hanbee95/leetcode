@@ -1,0 +1,20 @@
+import re
+class Solution:
+    def reformatNumber(self, number: str) -> str:
+        num = ""
+        for c in number:
+            if c.isdigit():
+                num = num + c
+
+        output = ""
+        while (len(num) >4):
+
+            output = output + num[:3]
+            output = output + '-'
+            num = num[3:]
+
+        if len(num) == 4:
+            output = output + num[:2] + '-' +  num[2:]
+        else:
+            output = output + num
+        return output
