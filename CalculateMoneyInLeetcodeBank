@@ -1,0 +1,14 @@
+class Solution:
+    def totalMoney(self, n: int) -> int:
+        if n <=7:
+            return n*(n+1)//2
+        w = n//7
+        output = w*28 + (w*(w-1)*7)//2
+
+        if n%7 !=0:
+            d = n%7
+            a = w+1
+            for i in range(d):
+                output = output + a
+                a = a + 1
+        return output
