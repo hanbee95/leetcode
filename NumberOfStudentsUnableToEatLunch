@@ -1,0 +1,8 @@
+class Solution:
+    def countStudents(self, students: List[int], sandwiches: List[int]) -> int:
+        for st in sandwiches:
+            if st in students:
+                students.remove(st)
+            else: 
+                return len(students)
+        return 0
