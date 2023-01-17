@@ -1,0 +1,6 @@
+class Solution:
+    def countGoodRectangles(self, rectangles: List[List[int]]) -> int:
+        minl = []
+        for elem in rectangles:
+            minl.append(min(elem))
+        return minl.count(max(minl))
