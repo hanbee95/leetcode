@@ -1,0 +1,14 @@
+class Solution:
+    def countBalls(self, lowLimit: int, highLimit: int) -> int:
+        ndict = {}
+        for n in range(lowLimit,highLimit+1):
+            tmp = str(n)
+            cnt = 0
+            for ch in tmp:
+                cnt = cnt + int(ch)
+
+            if cnt in ndict.keys():
+                ndict[cnt] = ndict[cnt] + 1
+            else:
+                ndict[cnt] = 1
+        return max(ndict.values())
