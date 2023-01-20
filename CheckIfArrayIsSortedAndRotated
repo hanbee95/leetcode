@@ -1,0 +1,18 @@
+class Solution:
+    def check(self, nums: List[int]) -> bool:
+        status = 0
+        curr = nums[0]
+        prev = nums[0]
+        potmin = nums[0]
+        potmax = nums[0]
+        for elem in nums:
+            if prev > elem :
+                if status == 0:
+                    status = 1
+                    potmax = prev
+                else: return False
+            prev = elem
+        if status == 1:
+            if nums[0]<nums[-1]:
+                return False
+        return True
