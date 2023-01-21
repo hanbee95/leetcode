@@ -1,0 +1,16 @@
+class Solution:
+    def minOperations(self, s: str) -> int:
+        if len(s) %2 == 0:
+            str1 = '01'*(len(s)//2)
+            str2 = '10'*(len(s)//2)
+        else:
+            str1 = '1'+'01'*(len(s)//2)
+            str2 = '0'+'10'*(len(s)//2)         
+        cnt1 = 0
+        cnt2 = 0
+        for i,elem in enumerate(s):
+            if elem != str1[i]:
+                cnt1 = cnt1 + 1
+            if elem != str2[i]:
+                cnt2 = cnt2 + 1
+        return min(cnt1,cnt2)
