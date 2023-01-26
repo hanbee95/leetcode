@@ -1,0 +1,15 @@
+class Solution:
+    def nearestValidPoint(self, x: int, y: int, points: List[List[int]]) -> int:
+        valid = []
+        for elem in points:
+            if elem[0] == x or elem[1] == y:
+                valid.append(elem)
+        
+        if len(valid) == 0:
+            return -1
+        
+        dist = []
+        for elem in valid:
+            dist.append(abs(x-elem[0])+abs(y-elem[1]))
+        
+        return points.index(valid[dist.index(min(dist))])
