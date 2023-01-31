@@ -1,0 +1,10 @@
+class Solution:
+    def secondHighest(self, s: str) -> int:
+        ls = set()
+        for c in s:
+            if c.isdigit():
+                ls.add(int(c))
+        
+        ls = sorted(list(ls))
+
+        return -1 if len(ls)<2 else ls[1]
