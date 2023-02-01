@@ -1,0 +1,8 @@
+import re
+class Solution:
+    def numDifferentIntegers(self, word: str) -> int:
+        digits = re.findall(r'\d+',word)
+        ndigits = []
+        for elem in digits:
+            ndigits.append(int(elem))
+        return len(set(ndigits))
