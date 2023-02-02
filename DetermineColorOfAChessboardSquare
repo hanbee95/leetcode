@@ -1,0 +1,9 @@
+import re
+class Solution:
+    def squareIsWhite(self, coordinates: str) -> bool:
+        nlist = re.findall('\d',coordinates)
+        alph = ord(coordinates.replace(nlist[0],''))
+        num = int(nlist[0])
+        if (alph+num)%2 == 0:
+            return False
+        return True
