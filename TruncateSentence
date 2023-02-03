@@ -1,0 +1,11 @@
+class Solution:
+    def truncateSentence(self, s: str, k: int) -> str:
+        cnt = 0
+        chcnt = 0
+        for ch in s:
+            if cnt == k:
+                break
+            if ch == ' ':
+                cnt = cnt + 1
+            chcnt = chcnt + 1
+        return s[:chcnt].strip()
