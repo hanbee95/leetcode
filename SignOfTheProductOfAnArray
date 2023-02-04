@@ -1,0 +1,9 @@
+class Solution:
+    def arraySign(self, nums: List[int]) -> int:
+        output = 1
+        for elem in nums:
+            if elem == 0:
+                return 0
+            if elem < 0:
+                output = output *(-1)
+        return output
