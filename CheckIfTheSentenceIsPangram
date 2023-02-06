@@ -1,0 +1,9 @@
+class Solution:
+    def checkIfPangram(self, sentence: str) -> bool:
+        chdict = {}
+        for ch in sentence:
+            if ch not in chdict.keys():
+                chdict[ch] = 1
+        if len(chdict) <26:
+            return False
+        return True
