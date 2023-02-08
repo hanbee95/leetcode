@@ -1,0 +1,18 @@
+import string
+class Solution:
+    def __init__(self):
+        self.tmp = string.digits+string.ascii_lowercase
+    def convert(self, num, base) :
+        q, r = divmod(num, base)
+        if q == 0 :
+            return self.tmp[r] 
+        else :
+            return self.convert(q, base) + self.tmp[r]
+    def sumBase(self, n: int, k: int) -> int:
+        output = 0
+
+        basednum = self.convert(n,k)
+        print(basednum)
+        for ch in basednum:
+            output = output + int(ch)
+        return output
