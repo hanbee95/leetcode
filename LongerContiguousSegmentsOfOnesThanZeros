@@ -1,0 +1,12 @@
+class Solution:
+    def checkZeroOnes(self, s: str) -> bool:
+        l0 = s.split('0')
+        l1 = s.split('1')
+
+        pot0, pot1 = 0,0
+
+        for elem in l0:
+            pot0 = max(pot0,len(elem))
+        for elem in l1:
+            pot1 = max(pot1,len(elem))     
+        return (pot0>pot1)  
