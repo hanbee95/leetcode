@@ -1,0 +1,16 @@
+class Solution:
+    def isSumEqual(self, firstWord: str, secondWord: str, targetWord: str) -> bool:
+        lookup = {'a':0, 'b':1, 'c':2, 'd':3, 'e':4, 'f':5, 'g':6, 'h':7, 'i':8, 'j':9}
+
+        target = 0
+        for elem in targetWord:
+            target = target*10 + lookup[elem]
+        
+        comp1 = 0
+        for elem in firstWord:
+            comp1 = comp1*10 + lookup[elem]
+        comp2 = 0
+        for elem in secondWord:
+            comp2 = comp2*10 + lookup[elem]
+    
+        return (target==(comp1+comp2))
