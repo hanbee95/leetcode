@@ -1,0 +1,13 @@
+class Solution:
+    def makeEqual(self, words: List[str]) -> bool:
+        cdict = {}
+        for chunk in words:
+            for elem in chunk:
+                if elem in cdict.keys():
+                    cdict[elem] = cdict[elem] + 1
+                else:
+                    cdict[elem] = 1
+        for k in cdict.keys():
+            if cdict[k]%len(words) !=0:
+                return False
+        return True
