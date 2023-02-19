@@ -1,0 +1,12 @@
+class Solution:
+    def subsetXORSum(self, nums: List[int]) -> int:
+        lst = []
+        output = 0
+        for i in range(1,len(nums)+1):
+            lst = lst + list(combinations(nums,i))
+        for i in lst:
+            tmp = i[0]
+            for elem in i[1:]:
+                tmp = tmp ^ elem
+            output = output + tmp
+        return output
