@@ -1,0 +1,8 @@
+class Solution:
+    def canBeIncreasing(self, nums: List[int]) -> bool:
+        for i in range(len(nums)):
+            tmp = nums.copy()
+            tmp.pop(i)
+            if tmp == sorted(set(tmp)):
+                return True
+        return False
