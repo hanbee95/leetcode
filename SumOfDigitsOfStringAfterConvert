@@ -1,0 +1,12 @@
+class Solution:
+    def getLucky(self, s: str, k: int) -> int:
+        tmp = ''
+        for ch in s:
+            tmp = tmp + str(ord(ch) -96)
+        while(k > 0):
+            k = k - 1
+            output = 0
+            for elem in str(tmp):
+                output = output + int(elem)
+            tmp = output
+        return output
