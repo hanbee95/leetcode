@@ -1,0 +1,12 @@
+class Solution:
+    def minTimeToType(self, word: str) -> int:
+        output = 0
+        cur = 'a'
+        for ch in word:
+            dif = abs(ord(ch)-ord(cur))
+            cur = ch
+            if dif>13:
+                output = output + 26 - dif + 1
+            else:
+                output = output + dif + 1
+        return output
