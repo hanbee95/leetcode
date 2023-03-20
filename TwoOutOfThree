@@ -1,0 +1,2 @@
+        for elem in set(nums1):
+            tmp.append(elem)
