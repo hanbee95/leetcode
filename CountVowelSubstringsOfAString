@@ -1,0 +1,15 @@
+class Solution:
+    def countVowelSubstrings(self, word: str) -> int:
+        output = 0
+        cur = set()
+        for i in range(len(word)):
+            if word[i] in 'aeiou':
+                cur.add(word[i])
+                for j in range(i+1,len(word)):
+                    if word[j] in 'aeiou':
+                        cur.add(word[j])
+                    else: break
+                    if len(cur) == 5:
+                        output = output + 1
+            cur = set()
+        return output
