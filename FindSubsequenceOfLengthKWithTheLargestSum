@@ -1,0 +1,9 @@
+class Solution:
+    def maxSubsequence(self, nums: List[int], k: int) -> List[int]:
+        output, maxk = [], sorted(nums,reverse=True)[:k]
+        for num in nums:
+            if num in maxk:
+                output.append(num)
+                maxk.remove(num)
+                if len(maxk) == 0:
+                    return output
